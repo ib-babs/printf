@@ -11,7 +11,7 @@ int printf_str(va_list val)
 
 	s = va_arg(val, char *);
 
-	while (s[i])
+	while (s && s[i] != '\0')
 		_putchar(s[i++]);
-	return (0);
+	return (i);
 }
