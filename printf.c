@@ -7,9 +7,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i, len = 0;
-
-	i = 0;
+	int i = 0, len = 0;
 
 	va_start(args, format);
 	while (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -29,7 +27,7 @@ int _printf(const char *format, ...)
 				printf_char(args);
 				break;
 			case '%':
-				printf_37();
+				_putchar('%');
 				break;
 			default:
 				break;
