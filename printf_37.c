@@ -4,7 +4,8 @@
  * printf_37 - function to print %
  * Return: void
  */
-void printf_37(void)
+int printf_37(void)
 {
 	_putchar('%');
+	return (1);
 }
