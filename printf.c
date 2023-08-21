@@ -6,32 +6,37 @@
  */
 int _printf(const char *format, ...)
 {
-	conver_fmt fmt[] = {
-		{"%c", printf_char},
-		{"%s", printf_str},
-		{"%%", printf_37}
-	};
-
 	va_list args;
-	int i, j, len = 0;
+	int i, len = 0;
 
 	i = 0;
+
 	va_start(args, format);
 	while (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
+
 	while (format[i] != '\0')
 	{
-		j = 2;
-		while (j >= 0)
+		if (format[i] == '%')
 		{
-			if (fmt[j].id[0] == format[i] && fmt[j].id[1] == format[i + 1])
+			i = i + 1;
+			switch (format[i])
 			{
-				len += fmt[j].f(args);
-				i = i + 2;
+			case 's':
+				printf_str(args);
+				break;
+			case 'c':
+				printf_char(args);
+				break;
+			case '%':
+				printf_37();
+				break;
+			default:
+				break;
 			}
-			j--;
 		}
-		_putchar(format[i]);
+		else
+			_putchar(format[i]);
 		len++;
 		i++;
 	}
