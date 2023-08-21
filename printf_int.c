@@ -10,7 +10,7 @@ int printf_num(va_list val)
 	int rem; /*Remainder of number after getting divided by 10*/
 	int num_cpy = number;
 	int i = 0, j = 0, len = 0;
-	char *s;
+	int *s;
 
 	if (number < 0)
 	{
@@ -23,7 +23,7 @@ int printf_num(va_list val)
 		len++;
 		num_cpy /= 10;
 	}
-	s = malloc(sizeof(char) * len); /*Allocate memory: Length of the number*/
+	s = malloc(sizeof(int) * len); /*Allocate memory: Length of the number*/
 
 	while (i < len)
 	{
@@ -38,5 +38,6 @@ int printf_num(va_list val)
 	while (s[j])
 		_putchar(s[j++]);
 
-	return (0);
+	return (j);
+	free(s);
 }
