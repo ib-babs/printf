@@ -30,6 +30,10 @@ int _printf(const char *format, ...)
 				case '%':
 					printf_37();
 					break;
+				case 'i':
+				case 'd':
+					printf_num(args);
+					break;
 				default:
 					break;
 			}
