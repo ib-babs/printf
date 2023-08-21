@@ -2,17 +2,16 @@
 /**
  * printf_str - FUnction that prints string
  * @val: Function argument
- * Return: Length of the string
+ * Return: Void
  */
-int printf_str(va_list val)
+void printf_str(va_list val)
 {
 	char *s;
-	int i;
-
+	int i = 0;
+	
 	s = va_arg(val, char *);
 
-	i = 0;
-	while (s[i])
-		_putchar(s[i++]);
-	return (i - 1);
+	if (s != NULL)
+		while (s[i])
+			_putchar(s[i++]);
 }

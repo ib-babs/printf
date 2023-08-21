@@ -6,20 +6,18 @@
 #include <unistd.h>
 /**
  * struct format - Format for printf function and its callee
- * @id: Conversion characters
  * @f: Function pointer
  */
 typedef struct format
 {
-	char *id;
 	int (*f)();
 } conver_fmt;
 
 int _putchar(char chr);
 int _printf(const char *format, ...);
 void printf_char(va_list val);
-int printf_str(va_list val);
-int printf_37(void);
+void printf_str(va_list val);
+void printf_37(void);
 int printf_num(va_list val);
 int printf_unsigned(va_list val);
 int printf_bin(va_list val);
