@@ -32,7 +32,7 @@ int printf_bin(va_list val)
 	}
 	s[i] = '\0';
 
-	/*Output the numbers*/
+	/*Output the  binary numbers*/
 	j = 0;
 	while (s[j])
 		_putchar(s[j++]);
