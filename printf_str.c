@@ -8,10 +8,14 @@ int printf_str(va_list val)
 {
 	char *s;
 	int i = 0;
-
+	char *null = "(null)";
 	s = va_arg(val, char *);
 
-	while (s && s[i] != '\0')
+	if (s == NULL)
+		while(null[i] != '\0')
+			_putchar(null[++]);
+
+	while (s[i] != '\0')
 		_putchar(s[i++]);
 	return (i);
 }
