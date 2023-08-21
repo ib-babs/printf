@@ -8,14 +8,14 @@ int printf_bin(va_list val)
 {
 	unsigned int number = va_arg(val, unsigned int);
 	int rem; /*Remainder of number after getting divided by 2*/
-	unsigned int num_cpy;
+	unsigned int num_cpy = number;
 	int i = 0, j, len = 0;
-	int *s;
+	char *s;
 
 	if (number == 0)
 		return (_putchar('0'));
-	/*Looping through copy of the number to get the length of the number*/
-	num_cpy = number; /* Copy of number */
+	if (number < 1)
+		return (-1);
 	while (num_cpy != 0)
 	{
 		len++;
@@ -23,6 +23,8 @@ int printf_bin(va_list val)
 	}
 
 	s = malloc(sizeof(int) * len); /*Allocate memory: Length of the number*/
+	if (s == NULL)
+		return (-1);
 
 	while (i < len)
 	{
@@ -37,6 +39,6 @@ int printf_bin(va_list val)
 	j = 0;
 	while (s[j])
 		_putchar(s[j++]);
-	return (j);
 	free(s);
+	return (j);
 }
