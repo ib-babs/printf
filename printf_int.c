@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- * print_num - Print numbers
- * @number: Number to print
+ * printf_num - Print numbers
+ * @val: va_list
  * Return: Void
  */
 int printf_num(va_list val)
