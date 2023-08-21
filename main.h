@@ -6,12 +6,14 @@
 #include <unistd.h>
 /**
  * struct format - Format for printf function and its callee
+ * @fmt: format
  * @f: Function pointer
  */
 typedef struct format
 {
+	char fmt;
 	int (*f)();
-} conver_fmt;
+} convert_fmt;
 
 int _putchar(char chr);
 int _printf(const char *format, ...);
