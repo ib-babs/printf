@@ -10,5 +10,5 @@ int printf_char(va_list val)
 	char chr = va_arg(val, int);
 
 	_putchar(chr);
-	return (0);
+	return (1);
 }
