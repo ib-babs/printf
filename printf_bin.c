@@ -7,12 +7,13 @@
 int printf_bin(va_list val)
 {
 	unsigned int number = va_arg(val, unsigned int);
-	unsigned int rem; /*Remainder of number after getting divided by 2*/
+	int rem; /*Remainder of number after getting divided by 2*/
 	unsigned int num_cpy;
-	unsigned int i, j, len = 0;
+	int i = 0, j, len = 0;
 	int *s;
 
-	i = 0;
+	if (number == 0)
+		return (_putchar('0'));
 	/*Looping through copy of the number to get the length of the number*/
 	num_cpy = number; /* Copy of number */
 	while (num_cpy != 0)
