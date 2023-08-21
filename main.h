@@ -17,7 +17,7 @@ typedef struct format
 
 int _putchar(char chr);
 int _printf(const char *format, ...);
-int printf_char(va_list val);
+void printf_char(va_list val);
 int printf_str(va_list val);
 int printf_37(void);
 int printf_num(va_list val);
