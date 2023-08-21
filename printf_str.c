@@ -13,7 +13,7 @@ int printf_str(va_list val)
 
 	if (s == NULL)
 		while(null[i] != '\0')
-			_putchar(null[++]);
+			_putchar(null[i++]);
 
 	while (s[i] != '\0')
 		_putchar(s[i++]);
