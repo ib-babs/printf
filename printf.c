@@ -29,6 +29,14 @@ int _printf(const char *format, ...)
 				printf_num(args);
 			if (format[i] == 'b')
 				printf_bin(args);
+			if (format[i] == 'u')
+				printf_unsigned_int(args);
+			if (format[i] == 'x')
+				printf_hex(args);
+			if (format[i] == 'X')
+				printf_HEX(args);
+			if (format[i] == 'o')
+				printf_oct(args);
 		}
 		else
 			_putchar(format[i]);
