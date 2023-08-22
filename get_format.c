@@ -16,7 +16,8 @@ int (*get_format(char *s))(va_list val)
 		{"X", printf_HEX},
 		{"x", printf_hex},
 		{"u", printf_unsigned_int},
-		{"o", printf_oct}
+		{"o", printf_oct},
+		{NULL, NULL}
 	};
 	int i = 0;
 
