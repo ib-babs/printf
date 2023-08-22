@@ -14,14 +14,17 @@ char *handle_bin_oct_un_int(unsigned int number, int divider, int length)
 
 	if (number == 0)
 		_putchar('0');
-	while (i < length)
+	if (s != NULL)
 	{
-		rem = number % divider;
-		number = number / divider;
-		s[length - (i + 1)] = rem + '0';
-		i++;
+		while (i < length)
+		{
+			rem = number % divider;
+			number = number / divider;
+			s[length - (i + 1)] = rem + '0';
+			i++;
+		}
+		s[i] = '\0';
 	}
-	s[i] = '\0';
 	return (s);
 }
 
@@ -40,18 +43,20 @@ char *handle_hex_HEX(unsigned int number, int hex_value, int length)
 
 	if (number == 0)
 		_putchar('0');
-	while (i < length)
+	if (s != NULL)
 	{
-		rem = number % 16;
-		if (rem > 9 && rem <= 15)
-			s[length - (i + 1)] = hex_value + rem;
-		else
-			s[length - (i + 1)] = rem + '0';
-		number = number / 16;
-
-		i++;
+		while (i < length)
+		{
+			rem = number % 16;
+			if (rem > 9 && rem <= 15)
+				s[length - (i + 1)] = hex_value + rem;
+			else
+				s[length - (i + 1)] = rem + '0';
+			number = number / 16;
+			i++;
+		}
+		s[i] = '\0';
 	}
-	s[i] = '\0';
 	return (s);
 }
 
