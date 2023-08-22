@@ -2,7 +2,7 @@
 /**
  * printf_num - Print numbers
  * @val: va_list
- * Return: Void
+ * Return: Length of the number
  */
 int printf_num(va_list val)
 {
@@ -32,6 +32,5 @@ int printf_num(va_list val)
 		num %= div;
 		div /= 10;
 	}
-
 	return (len);
 }

@@ -1,47 +1,32 @@
 #include "main.h"
 /**
- * _printf - Customized printf function
- * @format: Format of the printf
- * Return: Length of the argument
+ * _printf - Function to print
+ * @format: Conversion specifer
+ * Return: Length of the string
  */
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, len = 0;
+	int len = 0;
+	char *ptr;
+
+	ptr = (char *)format;
 
 	va_start(args, format);
-
-	while (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 
-	while (format[i] != '\0')
+	for (; *ptr; ptr++)
 	{
-		if (format[i] == '%')
+		if (*ptr != '%')
 		{
-			i = i + 1;
-			if (format[i] == 'c')
-				printf_char(args);
-			if (format[i] == 's')
-				printf_str(args);
-			if (format[i] == '%')
-				printf_37();
-			if (format[i] == 'i' || format[i] == 'd')
-				printf_num(args);
-			if (format[i] == 'b')
-				printf_bin(args);
-			if (format[i] == 'u')
-				printf_unsigned_int(args);
-			if (format[i] == 'x')
-				printf_hex(args);
-			if (format[i] == 'X')
-				printf_HEX(args);
-			if (format[i] == 'o')
-				printf_oct(args);
+			len += _putchar(*ptr);
+			continue;
 		}
-		else
-			_putchar(format[i]);
-		len++;
-		i++;
+		ptr++;
+		len += get_func(ptr, args);
 	}
 	va_end(args);
 	return (len);
