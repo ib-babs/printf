@@ -12,19 +12,21 @@ char *handle_bin_oct_un_int(unsigned int number, int divider, int length)
 	int i = 0;
 	char *s = malloc(sizeof(char) * length);
 
+	if (s == NULL)
+	{
+		free(s);
+		return (NULL);
+	}
 	if (number == 0)
 		_putchar('0');
-	if (s != NULL)
+	while (i < length)
 	{
-		while (i < length)
-		{
-			rem = number % divider;
-			number = number / divider;
-			s[length - (i + 1)] = rem + '0';
-			i++;
-		}
-		s[i] = '\0';
+		rem = number % divider;
+		number = number / divider;
+		s[length - (i + 1)] = rem + '0';
+		i++;
 	}
+	s[i] = '\0';
 	return (s);
 }
 
@@ -41,6 +43,11 @@ char *handle_hex_HEX(unsigned int number, int hex_value, int length)
 	int i = 0;
 	char *s = malloc(sizeof(char) * length);
 
+	if (s == NULL)
+	{
+		free(s);
+		return (NULL);
+	}
 	if (number == 0)
 		_putchar('0');
 	if (s != NULL)

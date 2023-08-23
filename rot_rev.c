@@ -10,6 +10,8 @@ int string_rev(va_list val)
 	unsigned int len = string_len(s);
 	int i = len - 1;
 
+	if (s == NULL)
+		return (-1);
 	while (i >= 0)
 		_putchar(s[i--]);
 	return (len);
