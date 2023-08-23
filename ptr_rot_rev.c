@@ -7,11 +7,11 @@
 int printf_ptr(va_list val)
 {
 	void *ptr = va_arg(val, void *);
-	int *p;
+	unsigned int *p;
 	int len;
 	char *s;
 
-	p = (int *)&ptr;
+	p = (unsigned int *)&ptr;
 	len = digit_len(*p, 16);
 	s = handle_hex_HEX(*p, 87, len);
 
