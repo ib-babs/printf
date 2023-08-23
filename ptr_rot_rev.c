@@ -17,6 +17,7 @@ int printf_ptr(va_list val)
 
 	_puts("0x");
 	_puts(s);
+	free(s);
 	return (len + 2);
 }
 /**
