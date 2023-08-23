@@ -20,6 +20,7 @@ int (*get_format(char *s))(va_list val)
 		{"r", string_rev},
 		{"R", rot13},
 		{"S", printf_special_char},
+		{"p", printf_ptr},
 		{NULL, NULL}
 	};
 	int i = 0;

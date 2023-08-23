@@ -1,5 +1,25 @@
 #include "main.h"
 /**
+ * printf_ptr - Pointer function
+ * @val: val_list
+ * Return: Hexadecimal pointer adrres length
+ */
+int printf_ptr(va_list val)
+{
+	void *ptr = va_arg(val, void *);
+	unsigned int *p;
+	int len;
+	char *s;
+
+	p = (unsigned int *)&ptr;
+	len = digit_len(*p, 16);
+	s = handle_hex_HEX(*p, 87, len);
+
+	_puts("0x");
+	_puts(s);
+	return (len + 2);
+}
+/**
  * string_rev - Reverse string
  * @val: va_list
  * Return: Length of the reversed string
