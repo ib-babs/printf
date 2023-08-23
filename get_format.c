@@ -17,6 +17,9 @@ int (*get_format(char *s))(va_list val)
 		{"x", printf_hex},
 		{"u", printf_unsigned_int},
 		{"o", printf_oct},
+		{"r", string_rev},
+		{"R", rot13},
+		{"S", printf_special_char},
 		{NULL, NULL}
 	};
 	int i = 0;
